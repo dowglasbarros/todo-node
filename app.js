@@ -1,11 +1,14 @@
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
+
+app.use(express.json());
 
 // Routes
-app.post("/todo", function(req, res) {
-  res.send("<h1>Hello World!</h1>");
+app.post("/todo", (req, res) => {
+  console.log(req.body);
+  res.json({ status: 'To-do created successfully!' })
 });
 
-app.listen(3000, function() {
+app.listen(3000, () => {
   console.log("Server started on port 3000");
 });
