@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Todo = require('./DB/Todo');
-const route = express.route();
+const Todo = require('../DB/Todo');
+const route = express.Router();
 
 route.post('/', async(req, res) => {
   const{title, description} = req.body;
@@ -13,3 +13,5 @@ route.post('/', async(req, res) => {
   await todoModel.save();
   res.json(todoModel);
 });
+
+module.exports = route;
